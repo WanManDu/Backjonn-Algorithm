@@ -1,8 +1,8 @@
 num = int(input())
-ans = list(input())
+
 
 for i in range(num):
-  
+    ans = list(input())
     score = 0
     plus_score = 0
     for i in ans:
