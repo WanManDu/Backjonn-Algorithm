@@ -20,4 +20,3 @@ else:
         if is_arithmetic_sequence:
             count += 1
     print(count)
-
