@@ -6,3 +6,6 @@ def solve(a):
 
 a=[1, 2, 3, 4, 5]
 print(solve(a))
+
+#def solve(a: list) -> int;
+#   reutrn sum(a)
