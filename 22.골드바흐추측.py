@@ -1,6 +1,8 @@
 import math
 
 def prime(n):
+    if n == 1:
+        return 0
     #2를 제외한 짝수는 다 소수
     if n == 2:
         return 1
@@ -14,25 +16,24 @@ def prime(n):
         if n % m == 0:
             return 0
     return 1
-     
 
 def goldbach(n):
-    list = [2, ]
     primes = []
-    prime_sum = []
-    for i in range(1, n):
+    for i in range(2, n):
         if prime(i) == 1:
-            list.append(i)
-    for i in range(len(list)):
-        for j in range(i+1, len(list)):
-            if list[i] + list[j] == n:
-                primes.append([list[i], list[j]])
-                prime_sum.append(abs(list[i] - list[j]))
-    
-    return prime_sum, primes
+            primes.append(i)
+
+    prime_set = None
+    min_value = n
+    for i in primes:
+        if prime(n - int(i)) and abs(2*int(i) - n) < min_value:
+            prime_set = (int(i), n - int(i))
+            min_value = abs(2*int(i) - n)
+    return prime_set
+
 
 test_case = int(input())
-
 for i in range(test_case):
     n = int(input())
-    print(goldbach(n))
+    p, q = goldbach(n)
+    print(f"{p} {q}")
