@@ -27,7 +27,7 @@ def N_Queens(n, i, count):
 
 n = int(input())
 
-pos = [0] * n # 각 열의 퀸의 위치
+pos = [0] * n # 각 행의 퀸의 위치
 flag_a = [False] * n # 각 열에 퀸이 있는지 확인
 flag_b = [False] * (2 * n - 1) #오른쪽 대각선에 퀸이 있는지 확인
 flag_c = [False] * (2 * n - 1) #왼쪽 대각선에 퀸이 있는지 확인
