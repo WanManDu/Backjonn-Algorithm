@@ -18,13 +18,12 @@ list_y.sort()
 max_x = 0
 max_y = 0
 
-
 for i in range(1, len(list_x)):
-    if list_x[i] - list_x[i-1] > max_x:
-        max_x = list_x[i] - list_x[i-1]
+    max_x = max(max_x, list_x[i] - list_x[i-1])
+
 
 for i in range(1, len(list_y)):
-    if list_y[i] - list_y[i-1] > max_y:
-        max_y = list_y[i] - list_y[i-1]
+    max_y = max(max_y, list_y[i] - list_y[i-1])
+
 
 print(max_x * max_y)
