@@ -2,8 +2,6 @@ import math
 
 #소수 구해주는 함수
 def prime(n):
-    if n == 1:
-        return 0
     #2를 제외한 짝수는 다 소수
     if n == 2:
         return 1
@@ -13,7 +11,7 @@ def prime(n):
         return 0
     #n의 루트값
     square = int(math.sqrt(n)) + 1
-    for m in range(3, square+1):
+    for m in range(3, square+1, 2):
         if n % m == 0:
             return 0
     return 1
