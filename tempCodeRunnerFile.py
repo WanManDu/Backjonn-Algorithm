@@ -1,3 +1,0 @@
-
-        score += count
-    else:
