@@ -4,8 +4,10 @@
 #used : 각 카드가 현재 조합에서 사용되었는지 확인
 #numbers : 현재까지 생성된 중복되지 않는 숫자의 조합을 저장
 
-def card_game(card_lists, depth, used, numbers):
+def card_game(card_lists, depth, numbers):
     #depth가 k일 떄, card_lists에 cards[i]를 추가하고 used[i]를 True로 하면 재귀함수 끝남
+    #card_lists에는 바로 숫자로 저장됨. 예를 들면, '2', '25' '5'를 조합해서 '2255', '2525', '5225' 등이 numbers에 저장됌
+    #이를 위해 card_lists에 리스트 [] 대신 "" 문자열을 사용하는 것.
     if depth == k:
         #card_lists 에 있는 숫자중 중복되지 않게 numbers에 추가
         if card_lists not in numbers:
@@ -13,10 +15,8 @@ def card_game(card_lists, depth, used, numbers):
         return
     
     for i in range(n):
-        if not used[i]:
-            used[i] = True
-            card_game(card_lists + cards[i], depth + 1, used, numbers)
-            used[i] = False
+        card_game(card_lists + cards[i], depth + 1, numbers)
+
 
 #카드 개수 입력
 n = int(input())
@@ -33,6 +33,6 @@ numbers = []
 used = [False] * n
 
 #재귀함수 호출
-card_game("", 0, used, numbers)
+card_game("", 0, numbers)
 
 print(len(numbers))
