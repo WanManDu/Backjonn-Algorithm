@@ -17,9 +17,7 @@ def N_Queens(n, i, count):
                 flag_b[i+j] = True
                 flag_c[i-j+(n-1)] = True
                 #다음 행으로 이동하여 퀸 배치 시도
-                count = N_Queens(n, i + 1, count)
-                #백트래킹 : 현재 행에서 퀸을 배치했던 위치를 다시 비워줌
-                #백트래킹을 하는 이유 : 
+                count = N_Queens(n, i + 1, count) 
                 flag_a[j] = False
                 flag_b[i+j] = False
                 flag_c[i-j+(n-1)] = False
