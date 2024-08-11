@@ -32,6 +32,5 @@ for start in range(N):
     first_city = start
     visit[start] = True
     salesman(1, start, visit, 0)
-    visit[start] = False
 
 print(min_price)
