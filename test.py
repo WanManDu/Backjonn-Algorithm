@@ -1,9 +1,11 @@
-A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2,3, 4], [1, 2, 3, 4]]
+A = [[1, 2], [3, 2], [4, 5], [9. 9]]
 
-for i in range(4):
-    for j in range(4):
-        for k in range(4):
-            A[i][j] += A[i][k] * A[k][j]
-            A[i][j] = A[i][j] % 1000
+distances = []
 
-print(A)
+def n_C_2(n):
+    return n * (n - 1) // 2
+
+for i in range(n_C_2(len(A))):
+    
+
+print(distances)
