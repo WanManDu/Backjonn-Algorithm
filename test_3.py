@@ -1,42 +1,33 @@
-#city_lists : N개의 도시들에 방문하는 조합을 저장한다
-# depth : 현재까지 방문한 도시의 개수
-# used : 현재까지 방문한 도시의 index를 저장한다
-#min_price : 현재까지 구한 최소 비용
 
-def salesman(depth, used, min_price):
+
+def insert_operator(depth, total_cal, sum, sub, mul, div):
+    global min_value, max_value
 
     if depth == N:
-        totalSum = 0
-        for i in range(0, N):
-            totalSum += moving_price[i][next]
-        min_price = min(min_price, totalSum)
-        return min_price
+        max_value = max(max_value, total_cal)
+        min_value = min(min_value, total_cal)
+        return
     
-    for i in range(N):
-        for j in range(N):
-            if moving_price[next][i] != 0 and i not in visited and value < min_value: 
-            if i != j:
-                if not used[i][j]:
-                    used[i][j] = True
-                    used[j][i] = True
-                    min_price = salesman(price_lists + [moving_price[i][j]], depth + 1, used, min_price)
-                    used[i][j] = False
-                    used[j][i] = False
-    return min_price
+    if sum > 0:
+        insert_operator(depth + 1, total_cal + A[depth], sum - 1, sub, mul, div)
+    if sub > 0:
+        insert_operator(depth + 1, total_cal - A[depth], sum, sub - 1, mul, div)    
+    if mul > 0:
+        insert_operator(depth + 1, total_cal * A[depth], sum, sub, mul - 1, div)
+    if div > 0:
+        insert_operator(depth + 1, int(total_cal / A[depth]), sum, sub, mul, div - 1)    
+
 
 N = int(input())
 
-moving_price = []
+A = list(map(int, input().split()))
 
-for i in range(N):
-    city = list(map(int, input().split()))
-    moving_price.append(city)
+operatorNum = list(map(int, input().split()))
 
-#모든 요소가 False인 N x N 행렬 선언
-used = [False] * N
+max_value = float('-inf')
+min_value = float('inf')
 
-#4000000을 넣은 이유 : 각 도시간의 비용의 최댓값이 1,000,000이므로
-#  4번 이동할 떄 최대 4,000,000의 비용이 든다.
-min_price = salesman(0, used, 4000000)
+insert_operator(1, A[0], operatorNum[0], operatorNum[1], operatorNum[2], operatorNum[3])
 
-print(min_price)
+print(max_value)
+print(min_value)
