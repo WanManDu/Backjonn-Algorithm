@@ -1,14 +1,21 @@
-import sys
+n = int(input())
 
-M, N, L = map(int, sys.stdin.readline().split())
+count = 99
 
-Hunter = list(map(int, sys.stdin.readline().split()))
+if n < 100:
+    print(n)
 
-Animal = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+else:
+    for x in range(100, n+1):
+        num_str = str(x)
+        d = int(num_str[1]) - int(num_str[0])
+        verify = True
 
+        for m in range(1, len(num_str)):
+            if int(num_str[m]) - int(num_str[m - 1]) != d:
+                verify = False
+                break
 
-for i in Hunter:
-    print(i)
-
-for i in Animal:
-    print(i)
+        if verify:
+            count += 1
+    print(count)

@@ -24,7 +24,7 @@ def goldbach(n):
             primes.append(i)
 
     #골츠바흐 숫자들의 조합을 저장하는 리스트
-    #예)n이 10이라면 pirme_set = [(3, 7), (5, 5)]
+    #예)n이 10이라면 prime_set = [(3, 7), (5, 5)]
     prime_set = None
 
     #prime_set 안의 숫자들의 조합들 중 차이가 가장 작은 조합을 찾기 위한 것
