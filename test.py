@@ -1,11 +1,14 @@
-A = [[1, 2], [3, 2], [4, 5], [9. 9]]
+import sys
 
-distances = []
+M, N, L = map(int, sys.stdin.readline().split())
 
-def n_C_2(n):
-    return n * (n - 1) // 2
+Hunter = list(map(int, sys.stdin.readline().split()))
 
-for i in range(n_C_2(len(A))):
-    
+Animal = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
-print(distances)
+
+for i in Hunter:
+    print(i)
+
+for i in Animal:
+    print(i)
