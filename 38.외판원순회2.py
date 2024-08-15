@@ -17,7 +17,7 @@ def salesman(depth, current_city, visit, total_cost):
 
     # 현재 도시에서 방문할 수 있는 다른 도시를 탐색
     for next_city in range(N):
-        #<movint_price의 값이 0인지 확인하는 것이 백트래킹 조건
+        #moving_price의 값이 0인지 확인하고 지난적이 있는 도시인지 확인하는 것이 백트래킹 조건
         if not visit[next_city] and moving_price[current_city][next_city] != 0:
             visit[next_city] = True
             salesman(depth + 1, next_city, visit, total_cost + moving_price[current_city][next_city])

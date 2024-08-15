@@ -9,7 +9,7 @@ C = 1000
 #행렬A와 행렬 B의 곱을 계산해 주는 함수
 def matrix_multiply(A, B):
     #결과를 저장할 행렬을 0으로 초기화(N * N 크기)
-    martirx_mul = [[0] * N for _ in range(N)]
+    matrix_mul = [[0] * N for _ in range(N)]
 
     for i in range(N):
         for j in range(N):
@@ -18,9 +18,9 @@ def matrix_multiply(A, B):
             # C[3][5] = A[3][1]B[1][5] + A[3][2]B[2][5] + ... + A[3][N]B[N][5]
             #k가 1부터 N까지 변한다고 볼 수 있음
             for k in range(N):
-                martirx_mul[i][j] += A[i][k] * B[k][j]
-                martirx_mul[i][j] = martirx_mul[i][j] % 1000
-    return martirx_mul
+                matrix_mul[i][j] += A[i][k] * B[k][j]
+                matrix_mul[i][j] = matrix_mul[i][j] % 1000
+    return matrix_mul
     
 
 def solution(A, B):

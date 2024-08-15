@@ -1,10 +1,8 @@
 
 
 def black_game(card_lists, depth, used, score):
-    #depth가 k일 떄, card_lists에 cards[i]를 추가하고 used[i]를 True로 하면 재귀함수 끝남
+    #depth == 3일때, 기저조건 실행
     if depth == 3:
-        #card_lists 에 있는 숫자중 중복되지 않게 numbers에 추가
-        card_lists = sorted(card_lists)  #순서가 다른 같은 조합을 동일하게 인식하기 위해 정렬
         personal_score = sum(card_lists)
         if personal_score <= M:
             score.append(personal_score)

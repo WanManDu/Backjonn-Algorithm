@@ -13,11 +13,12 @@ def card_game(card_lists, depth, used, numbers):
         if card_lists not in numbers:
             numbers.append(card_lists)
         return
-    
+
     for i in range(n):
-        used[i] = True
-        card_game(card_lists + cards[i], depth + 1, used, numbers)
-        used[i] = False
+        if not used[i]:
+            used[i] = True
+            card_game(card_lists + cards[i], depth + 1, used, numbers)
+            used[i] = False
 
 #카드 개수 입력
 n = int(input())

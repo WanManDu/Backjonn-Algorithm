@@ -1,13 +1,9 @@
-import sys
-input = sys.stdin.readline
-print = sys.stdout.write
-
 n = int(input())
 wordSet = set()
 
 # 단어 입력
 for i in range(n):
-    word = input().strip()  # 개행 문자 제거
+    word = input() 
     wordSet.add(word)  # 중복을 허용하지 않는 set에 추가
 
 # 단어 길이와 알파벳 순서를 고려하여 정렬
@@ -17,4 +13,4 @@ wordList = sorted(wordSet, key=lambda x: (len(x), x))
 
 # 정렬된 단어 출력
 for word in wordList:
-    print(word + '\n')
+    print(word)
